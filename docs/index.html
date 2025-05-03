@@ -1,0 +1,132 @@
+<!doctype html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Homework SkillBox TS</title><link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"><script defer="defer" src="scripts.13e424e6b94968ff1ab0.js"></script><link href="styles.de1e58cd02fdf9481b38.css" rel="stylesheet"></head><body><div id="wrapper" class="wrapper"><header id="header" class="header"><div class="header__container flex"><a href="#" class="header__logo link">S</a><nav class="header__nav nav"><ul class="header__menu header-menu list"><li class="header-menu__item"><a href="#" class="header-menu__link link"><span class="header-menu__link-text"></span></a></li><li class="header-menu__item"><a href="#" class="header-menu__link link"><span class="header-menu__link-text"></span></a></li><li class="header-menu__item"><a href="#" class="header-menu__link link"><span class="header-menu__link-text"></span></a></li><li class="header-menu__item"><a href="#" class="header-menu__link link"><span class="header-menu__link-text"></span></a></li><li class="header-menu__item"><a href="#generics" class="header-menu__link link"><span class="header-menu__link-text">Модуль №5: Дженерики</span></a></li><li class="header-menu__item"><a href="#utilitarian" class="header-menu__link link"><span class="header-menu__link-text">Модуль №6: Утилитарные типы</span></a></li><li class="header-menu__item"><a href="#" class="header-menu__link link"><span class="header-menu__link-text"></span></a></li><li class="header-menu__item"><a href="#" class="header-menu__link link"><span class="header-menu__link-text"></span></a></li><li class="header-menu__item"><a href="#" class="header-menu__link link"><span class="header-menu__link-text"></span></a></li><li class="header-menu__item"><a href="#" class="header-menu__link link"><span class="header-menu__link-text"></span></a></li></ul></nav><form id="search" class="header__search header-search"><input id="search-input" class="header-search__input input" placeholder="Search"> <button class="header-search__btn btn"><svg viewBox="0 0 512 512" title="search"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></button></form></div></header><main id="main" class="main"><section id="hero" class="hero"><div class="hero__container"><h1 class="hero__title">Домашние задания по TypeScript от SkillBox</h1></div></section><section id="generics" class="generics"><div class="generics__container"><h2 class="generics__title">Модуль №5: Дженерики</h2><pre class="pre">
+<i>// ЗАДАНИЕ №1</i>
+<i>// Интерфейс</i>
+interface <span class="blue-violet">IStack</span>&lt;T&gt; {
+  <span class="light-green">items</span>: T[];
+  <span class="dark-red">push</span>(<span class="light-green">item</span>: T): <span class="blue-violet">void</span>;
+  <span class="dark-red">pop</span>(): T | <span class="turquoise">undefined</span>;
+  <span class="dark-red">isEmpty</span>(): <span class="blue-violet">boolean</span>;
+  <span class="dark-red">size</span>(): <span class="blue-violet">number</span>;
+}
+
+<i>// Класс</i>
+class Stack&lt;T&gt; implements <span class="blue-violet"></span>IStack&lt;T&gt; {
+  <span class="light-green">items</span>: T[];
+  <span class="dark-red">constructor</span>() {
+    <span class="turquoise">this</span>.<span class="light-green">items</span> = [];
+  }
+
+  <i>// push - добавляет элемент в стек</i>
+  <span class="dark-red">push</span>(item: T): <span class="blue-violet">void</span> {
+    <span class="turquoise">this</span>.<span class="light-green">items</span>.<span class="dark-red">push</span>(item);
+  }
+
+  <i>// pop - удаляет и возращает последний добавленный элемент стека. Если стек пустой, возвращает undefined</i>
+  <span class="dark-red">pop</span>(): T | undefined {
+    return <span class="turquoise">this</span>.<span class="light-green">items</span>.<span class="dark-red">pop</span>();
+  }
+
+  <i>// isEmpty - возвращает true, если стек пустой, и false в противном случае</i>
+  <span class="dark-red">isEmpty</span>(): <span class="blue-violet">boolean</span> {
+    return <span class="turquoise">this</span>.<span class="light-green">items</span>.<span class="light-green">length</span> === <span class="light-green">0</span>;
+  }
+
+  <i>// size - возвращает количество элементов в стеке</i>
+  <span class="dark-red">size</span>(): <span class="blue-violet">number</span> {
+    return <span class="turquoise">this</span>.<span class="light-green">items</span>.<span class="light-green">length</span>;
+  }
+}
+
+<i>// Создание стэков (массивов или башен) с типами данных number</i>
+const <span class="light-green">stack1</span>: <span class="blue-violet">IStack</span>&lt;<span class="blue-violet">number</span>&gt; = new Stack&lt;<span class="blue-violet">number</span>&gt;();
+const <span class="light-green">stack2</span>: <span class="blue-violet">IStack</span>&lt;<span class="blue-violet">number</span>&gt; = new Stack&lt;<span class="blue-violet">number</span>&gt;();
+const <span class="light-green">stack3</span>: <span class="blue-violet">IStack</span>&lt;<span class="blue-violet">number</span>&gt; = new Stack&lt;<span class="blue-violet">number</span>&gt;();
+
+<i>// Добавление чисел в первый стэк (массив или башня)</i>
+stack1.<span class="dark-red">push</span>(<span class="light-green">5</span>);
+stack1.<span class="dark-red">push</span>(<span class="light-green">4</span>);
+stack1.<span class="dark-red">push</span>(<span class="light-green">3</span>);
+stack1.<span class="dark-red">push</span>(<span class="light-green">2</span>);
+stack1.<span class="dark-red">push</span>(<span class="light-green">1</span>);
+
+<i>// Измерение длины стэка (массива) методом <span class="dark-red">size</span>()</i>
+const n = stack1.<span class="dark-red">size</span>();
+
+<i>// Рекурсивная функция</i>
+<i>// Параметры: (n, stack1, stack2, stack3)</i>
+<i>// n - количество вызовов функции</i>
+<i>// stack1 - основной стэк (массив или башня)</i>
+<i>// stack2 - вспомогательный стэк (массив или башня)</i>
+<i>// stack3 - целевой стэк (массив или башня)</i>
+function <span class="dark-red">movingStacks</span>(<span class="turquoise">n:</span> <span class="blue-violet">number</span>, <span class="turquoise">source:</span> <span class="turquoise">IStack&lt;</span><span class="blue-violet">number</span> <span class="turquoise">| undefined&gt;</span>, <span class="turquoise">spare:</span> <span class="turquoise">IStack&lt;</span><span class="blue-violet">number</span> <span class="turquoise">| undefined&gt;</span>, <span class="turquoise">target:</span> <span class="turquoise">IStack&lt;</span><span class="blue-violet">number</span> <span class="turquoise">| undefined&gt;</span>): <span class="blue-violet">void</span> {
+  if (n === 1) {
+    target.<span class="dark-red">push</span>(source.<span class="dark-red">pop</span>());
+    <span class="turquoise">console</span>.<span class="dark-red">log</span>(stack1.<span class="light-green">items</span>, stack2.<span class="light-green">items</span>, stack3.<span class="light-green">items</span>);
+    return;
+  }
+  <span class="turquoise">console</span>.<span class="dark-red">log</span>(stack1.<span class="light-green">items</span>, stack2.<span class="light-green">items</span>, stack3.<span class="light-green">items</span>);
+
+  <span class="dark-red">movingStacks</span>(n - 1, source, target, spare);
+
+  target.<span class="dark-red">push</span>(source.<span class="dark-red">pop</span>());
+
+  <span class="dark-red">movingStacks</span>(n - 1, spare, source, target);
+}
+
+<i>// При каждом вызове рекурсивной функции самой себя процесс погружается глубже на один уровень до тех пор, пока n не будет равняться 0</i>
+
+<span class="turquoise">console</span>.<span class="dark-red">log</span>(stack1.<span class="light-green">items</span>, stack2.<span class="light-green">items</span>, stack3.<span class="light-green">items</span>);
+<span class="dark-red">movingStacks</span>(n, stack1, stack2, stack3);
+
+
+
+<i>// ЗАДАНИЕ №2</i>
+interface <span class="blue-violet">Container</span>&lt;T&gt; {
+  <span class="light-green">value</span>: T;
+}
+
+function getValue&lt;T&gt;(<span class="light-green"></span>container: <span class="blue-violet">Container</span>&lt;T&gt;): <span class="blue-violet">void</span> {
+  <span class="turquoise">console</span>.<span class="dark-red">log</span>(container.<span class="light-green">value</span>);
+}
+
+getValue&lt;<span class="blue-violet">number</span>&gt;({ <span class="light-green">value</span>: <span class="turquoise">1</span> });
+getValue&lt;<span class="blue-violet">string</span>&gt;({ <span class="light-green">value</span>: <span class="light-red">"string"</span> });
+getValue&lt;<span class="blue-violet">boolean</span>&gt;({ <span class="light-green">value</span>: <span class="turquoise">true</span> });
+          </pre></div></section><section id="utilitarian" class="utilitarian"><div class="utilitarian__container"><h2 class="utilitarian__title">Модуль №6: Утилитарные типы</h2><pre class="pre">
+<i>// TASK 1</i>
+type Dinamic1 = Record&lt;string, string&gt;;
+type Dinamic2 = { [key: string]: number; };
+type Tuple = [string, number, string];
+
+interface Car {
+  model: string;
+  price: number;
+  dynamic_1: Dinamic1;
+  dynamic_2: Dinamic2;
+  tuple: Tuple;
+}
+
+class RandomCar implements Car {
+  model: string;
+  price: number;
+  dynamic_1: Dinamic1;
+  dynamic_2: Dinamic2;
+  tuple: Tuple;
+
+  constructor(model: string, price: number, dynamic_1: Dinamic1, dynamic_2: Dinamic2, tuple: Tuple) {
+    this.model = model;
+    this.price = price;
+    this.dynamic_1 = dynamic_1;
+    this.dynamic_2 = dynamic_2;
+    this.tuple = tuple;
+  }
+}
+
+<i>// RandomCar(model, price, dynamic_1, dynamic_2, tuple)</i>
+const myCar: Car = new RandomCar("BMW", 100000, 
+{ key_1: "string", key_2: "string", key_3: "string", key_4: "string" }, 
+{ key_1: 1, key_2: 2, key_3: 3 }, 
+["TURBO", 2025, "Black"]);
+
+console.log(myCar);
+          </pre></div></section></main><footer id="footer" class="footer">FOOTER</footer></div></body></html>
